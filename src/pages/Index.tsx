@@ -3,6 +3,7 @@ import { Header } from '@/components/Header';
 import { CategoryFilters } from '@/components/CategoryFilters';
 import { ExperienceCard } from '@/components/ExperienceCard';
 import { MadeWithDyad } from "@/components/made-with-dyad";
+import { BottomNavbar } from '@/components/BottomNavbar';
 
 const mockExperiences = [
   {
@@ -92,7 +93,7 @@ const Index = () => {
     );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pb-20">
       <Header 
         searchTerm={searchTerm} 
         onSearchChange={(e) => setSearchTerm(e.target.value)} 
@@ -106,6 +107,7 @@ const Index = () => {
         </div>
       </main>
       <MadeWithDyad />
+      <BottomNavbar />
     </div>
   );
 };
