@@ -8,7 +8,7 @@ import { BottomNavbar } from '@/components/BottomNavbar';
 const mockExperiences = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1593693397638-79b1a1a4b3a9?q=80&w=800&auto=format&fit=crop',
+    image: '/exp1.svg',
     title: 'Alleppey Food Walk: 2 Hours Guided Local Food Tasting...',
     price: 18,
     rating: 4.7,
@@ -17,7 +17,7 @@ const mockExperiences = [
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1589921324993-e4785d3a7564?q=80&w=800&auto=format&fit=crop',
+    image: '/exp2.svg',
     title: 'Houseboat Tour: Aleppey\'s Best Canals',
     price: 159,
     rating: 4.8,
@@ -26,7 +26,7 @@ const mockExperiences = [
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1619450528393-63b3633359a2?q=80&w=800&auto=format&fit=crop',
+    image: '/exp3.svg',
     title: 'Alleppey Backwater Village Exploration Kayaking through...',
     price: 29,
     rating: 5.0,
@@ -35,7 +35,7 @@ const mockExperiences = [
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1542296332-935532a24b22?q=80&w=800&auto=format&fit=crop',
+    image: '/exp4.svg',
     title: 'Private Luxury Houseboat Journey: Alleppey Backwaters...',
     price: 256,
     rating: 4.7,
@@ -44,7 +44,7 @@ const mockExperiences = [
   },
   {
     id: 5,
-    image: 'https://images.unsplash.com/photo-1603834359334-26a769b7a1f4?q=80&w=800&auto=format&fit=crop',
+    image: '/exp5.svg',
     title: 'Sunrise Kayaking in the Backwaters',
     price: 35,
     rating: 4.9,
@@ -53,7 +53,7 @@ const mockExperiences = [
   },
   {
     id: 6,
-    image: 'https://images.unsplash.com/photo-1613779351882-382c18388392?q=80&w=800&auto=format&fit=crop',
+    image: '/exp6.svg',
     title: 'Kerala Sadya Cooking Class',
     price: 40,
     rating: 4.8,
@@ -62,7 +62,7 @@ const mockExperiences = [
   },
   {
     id: 7,
-    image: 'https://images.unsplash.com/photo-1580489232382-49123940598a?q=80&w=800&auto=format&fit=crop',
+    image: '/exp7.svg',
     title: 'Village Life Experience Tour',
     price: 25,
     rating: 4.6,
@@ -71,7 +71,7 @@ const mockExperiences = [
   },
   {
     id: 8,
-    image: 'https://images.unsplash.com/photo-1566489344919-a68a78a3c0f4?q=80&w=800&auto=format&fit=crop',
+    image: '/exp8.svg',
     title: 'Overnight Stay in a Premium Houseboat',
     price: 300,
     rating: 4.9,
