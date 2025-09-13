@@ -81,14 +81,22 @@ const mockExperiences = [
 
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState('Trending');
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredExperiences = mockExperiences.filter(exp => 
-    activeCategory === 'Trending' || exp.category === activeCategory
-  );
+  const filteredExperiences = mockExperiences
+    .filter(exp => 
+      activeCategory === 'Trending' || exp.category === activeCategory
+    )
+    .filter(exp =>
+      exp.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
+      <Header 
+        searchTerm={searchTerm} 
+        onSearchChange={(e) => setSearchTerm(e.target.value)} 
+      />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <CategoryFilters activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 mt-8">
