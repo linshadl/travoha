@@ -1,33 +1,40 @@
-import { Button } from '@/components/ui/button';
-import { Waves, Users, Heart, Sailboat, Utensils, Moon, Palette, Filter } from 'lucide-react';
+"use client";
+
+import { useState } from 'react';
+import { Waves, Users, Heart, Sailboat, Utensils, Moon, Palette, Sun } from 'lucide-react';
 
 const categories = [
-  { name: 'Trending', icon: <Waves className="h-5 w-5 mr-2" /> },
-  { name: 'On the Water', icon: <Sailboat className="h-5 w-5 mr-2" /> },
-  { name: 'Families', icon: <Users className="h-5 w-5 mr-2" /> },
-  { name: 'Dates', icon: <Heart className="h-5 w-5 mr-2" /> },
-  { name: 'Tours', icon: <Sailboat className="h-5 w-5 mr-2" /> },
-  { name: 'Food & Drink', icon: <Utensils className="h-5 w-5 mr-2" /> },
-  { name: 'Night Owls', icon: <Moon className="h-5 w-5 mr-2" /> },
-  { name: 'Art & Culture', icon: <Palette className="h-5 w-5 mr-2" /> },
+  { name: 'Trending', icon: <Waves className="h-6 w-6" /> },
+  { name: 'On the Water', icon: <Sailboat className="h-6 w-6" /> },
+  { name: 'Day Trips', icon: <Sun className="h-6 w-6" /> },
+  { name: 'Families', icon: <Users className="h-6 w-6" /> },
+  { name: 'Dates', icon: <Heart className="h-6 w-6" /> },
+  { name: 'Tours', icon: <Sailboat className="h-6 w-6" /> },
+  { name: 'Food & Drink', icon: <Utensils className="h-6 w-6" /> },
+  { name: 'Night Owls', icon: <Moon className="h-6 w-6" /> },
+  { name: 'Art & Culture', icon: <Palette className="h-6 w-6" /> },
 ];
 
 export const CategoryFilters = () => {
+  const [activeCategory, setActiveCategory] = useState('Trending');
+
   return (
-    <div className="py-4 border-b">
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex-grow space-x-2 overflow-x-auto pb-2 -mb-2 no-scrollbar snap-x snap-mandatory">
-          {categories.map((category, index) => (
-            <Button key={category.name} variant={index === 0 ? 'secondary' : 'ghost'} className="flex-shrink-0 snap-start">
-              {category.icon}
-              {category.name}
-            </Button>
-          ))}
-        </div>
-        <Button variant="outline" className="flex-shrink-0">
-          <Filter className="h-5 w-5 md:mr-2" />
-          <span className="hidden md:inline">Filter</span>
-        </Button>
+    <div className="py-2 border-b">
+      <div className="flex space-x-2 md:space-x-4 overflow-x-auto pb-3 no-scrollbar snap-x snap-mandatory">
+        {categories.map((category) => (
+          <button
+            key={category.name}
+            onClick={() => setActiveCategory(category.name)}
+            className={`flex flex-col items-center justify-start pt-2 space-y-1 flex-shrink-0 w-24 h-20 snap-start focus:outline-none transition-colors duration-200 ${
+              activeCategory === category.name
+                ? 'text-primary border-b-2 border-primary'
+                : 'text-muted-foreground hover:text-primary'
+            }`}
+          >
+            {category.icon}
+            <span className="text-xs text-center font-medium">{category.name}</span>
+          </button>
+        ))}
       </div>
     </div>
   );
