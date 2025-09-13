@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Header } from '@/components/Header';
 import { CategoryFilters } from '@/components/CategoryFilters';
 import { ExperienceCard } from '@/components/ExperienceCard';
@@ -11,6 +12,7 @@ const mockExperiences = [
     price: 18,
     rating: 4.7,
     reviews: 29,
+    category: 'Food & Drink',
   },
   {
     id: 2,
@@ -19,6 +21,7 @@ const mockExperiences = [
     price: 159,
     rating: 4.8,
     reviews: 33,
+    category: 'On the Water',
   },
   {
     id: 3,
@@ -27,6 +30,7 @@ const mockExperiences = [
     price: 29,
     rating: 5.0,
     reviews: 27,
+    category: 'On the Water',
   },
   {
     id: 4,
@@ -35,6 +39,7 @@ const mockExperiences = [
     price: 256,
     rating: 4.7,
     reviews: 27,
+    category: 'Dates',
   },
   {
     id: 5,
@@ -43,6 +48,7 @@ const mockExperiences = [
     price: 35,
     rating: 4.9,
     reviews: 45,
+    category: 'Day Trips',
   },
   {
     id: 6,
@@ -51,6 +57,7 @@ const mockExperiences = [
     price: 40,
     rating: 4.8,
     reviews: 18,
+    category: 'Food & Drink',
   },
   {
     id: 7,
@@ -59,6 +66,7 @@ const mockExperiences = [
     price: 25,
     rating: 4.6,
     reviews: 52,
+    category: 'Tours',
   },
   {
     id: 8,
@@ -67,17 +75,24 @@ const mockExperiences = [
     price: 300,
     rating: 4.9,
     reviews: 60,
+    category: 'On the Water',
   },
 ];
 
 const Index = () => {
+  const [activeCategory, setActiveCategory] = useState('Trending');
+
+  const filteredExperiences = mockExperiences.filter(exp => 
+    activeCategory === 'Trending' || exp.category === activeCategory
+  );
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <CategoryFilters />
+        <CategoryFilters activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 mt-8">
-          {mockExperiences.map((exp) => (
+          {filteredExperiences.map((exp) => (
             <ExperienceCard key={exp.id} experience={exp} />
           ))}
         </div>

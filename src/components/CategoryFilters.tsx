@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from 'react';
 import { Waves, Users, Heart, Sailboat, Utensils, Moon, Palette, Sun } from 'lucide-react';
 
 const categories = [
@@ -15,9 +12,12 @@ const categories = [
   { name: 'Art & Culture', icon: <Palette className="h-6 w-6" /> },
 ];
 
-export const CategoryFilters = () => {
-  const [activeCategory, setActiveCategory] = useState('Trending');
+interface CategoryFiltersProps {
+  activeCategory: string;
+  setActiveCategory: (category: string) => void;
+}
 
+export const CategoryFilters = ({ activeCategory, setActiveCategory }: CategoryFiltersProps) => {
   return (
     <div className="py-2 border-b">
       <div className="flex space-x-2 md:space-x-4 overflow-x-auto pb-3 no-scrollbar snap-x snap-mandatory">
