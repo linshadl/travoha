@@ -1,6 +1,11 @@
 import { Search } from "lucide-react";
 
-export const Header = () => {
+interface HeaderProps {
+  searchTerm: string;
+  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const Header = ({ searchTerm, onSearchChange }: HeaderProps) => {
   return (
     <header className="flex items-center justify-between p-4 bg-white border-b space-x-4">
       <h1 className="text-xl font-bold text-blue-600 shrink-0">Travoha</h1>
@@ -10,6 +15,8 @@ export const Header = () => {
           type="text"
           placeholder="Search destination"
           className="w-full pl-10 pr-4 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          value={searchTerm}
+          onChange={onSearchChange}
         />
       </div>
     </header>

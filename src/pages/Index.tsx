@@ -83,6 +83,15 @@ const mockExperiences = [
 const Index = () => {
   const [activeCategory, setActiveCategory] = useState('Trending');
   const [searchTerm, setSearchTerm] = useState('');
+  const [wishlist, setWishlist] = useState<number[]>([]);
+
+  const handleToggleWishlist = (experienceId: number) => {
+    setWishlist((prevWishlist) =>
+      prevWishlist.includes(experienceId)
+        ? prevWishlist.filter((id) => id !== experienceId)
+        : [...prevWishlist, experienceId]
+    );
+  };
 
   const filteredExperiences = mockExperiences
     .filter(exp => 
@@ -102,7 +111,12 @@ const Index = () => {
         <CategoryFilters activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 mt-8">
           {filteredExperiences.map((exp) => (
-            <ExperienceCard key={exp.id} experience={exp} />
+            <ExperienceCard 
+              key={exp.id} 
+              experience={exp}
+              isWishlisted={wishlist.includes(exp.id)}
+              onToggleWishlist={() => handleToggleWishlist(exp.id)}
+            />
           ))}
         </div>
       </main>
