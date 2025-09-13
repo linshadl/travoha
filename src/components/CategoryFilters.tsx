@@ -16,9 +16,9 @@ export const CategoryFilters = () => {
   return (
     <div className="py-4 border-b">
       <div className="flex items-center justify-between gap-4">
-        <div className="flex-grow space-x-2 overflow-x-auto pb-2 -mb-2 no-scrollbar">
+        <div className="flex-grow space-x-2 overflow-x-auto pb-2 -mb-2 no-scrollbar snap-x snap-mandatory">
           {categories.map((category, index) => (
-            <Button key={category.name} variant={index === 0 ? 'secondary' : 'ghost'} className="flex-shrink-0">
+            <Button key={category.name} variant={index === 0 ? 'secondary' : 'ghost'} className="flex-shrink-0 snap-start">
               {category.icon}
               {category.name}
             </Button>
